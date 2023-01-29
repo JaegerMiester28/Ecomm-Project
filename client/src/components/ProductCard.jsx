@@ -18,7 +18,7 @@ import { Link as ReactLink } from 'react-router-dom';
 import { StarIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 
-const Rating = ({ rating, numReviews }) => {
+const Rating = ({ rating, numberOfReviews }) => {
 	const { iconSize, setIconSize } = useState('14px');
 	return (
 		<Flex>
@@ -46,7 +46,9 @@ const Rating = ({ rating, numReviews }) => {
 				/>
 			</HStack>
 			<Text fontSize="md" fontWeight="bold" ml="4px">
-				{`${numReviews} ${numReviews === 1 ? 'Review' : 'Reviews'}`}
+				{`${numberOfReviews} ${
+					numberOfReviews === 1 ? 'Review' : 'Reviews'
+				}`}
 			</Text>
 		</Flex>
 	);
@@ -65,7 +67,7 @@ const ProductCard = ({ product }) => {
 			shawdow="lg"
 			position="relative"
 		>
-			{product.isNew && (
+			{product.stock && (
 				<Circle
 					size="10px"
 					position="absolute"
@@ -74,7 +76,7 @@ const ProductCard = ({ product }) => {
 					bg="green.300"
 				/>
 			)}
-			{product.stock <= 0 && (
+			{product.productIsNew <= 0 && (
 				<Circle
 					size="10px"
 					position="absolute"
@@ -96,7 +98,7 @@ const ProductCard = ({ product }) => {
 						Sold Out
 					</Badge>
 				)}
-				{product.isNew && (
+				{product.productIsNew && (
 					<Badge
 						rounded="full"
 						px="2"
@@ -127,7 +129,7 @@ const ProductCard = ({ product }) => {
 			<Flex justifyContent="space-between" alignContent="center" py="2">
 				<Rating
 					rating={product.rating}
-					numReviews={product.numReviews}
+					numberOfReviews={product.numberOfReviews}
 				/>
 			</Flex>
 			<Flex justify="space-between">
