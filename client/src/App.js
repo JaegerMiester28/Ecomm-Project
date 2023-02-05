@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import LandingScreen from './screens/LandingScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
+import ProfileScreen from './screens/ProfileScreen';
 function App() {
 	return (
 		<ChakraProvider>
@@ -29,6 +30,10 @@ function App() {
 						<Route
 							path="/registration"
 							element={<RegistrationScreen />}
+						></Route>
+						<Route
+							path="/profile"
+							element={<ProfileScreen />}
 						></Route>
 					</Routes>
 				</main>
